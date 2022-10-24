@@ -27,6 +27,6 @@ class InventoryController extends Controller
 
     public function update(InventoryRequest $request)
     {
-        return $this->inventory->process($request->all());
+        return response()->json($this->inventory->process($request->all()));
     }
 }
