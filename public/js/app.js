@@ -2081,7 +2081,7 @@ __webpack_require__.r(__webpack_exports__);
         'quantity': this.quantity
       }).then(function (res) {
         _this.success = true;
-        _this.message = "Success!\n                                You have applied ".concat(_this.quantity, " units for $").concat(res.data.valuation, " valuation.\n                                Current remaining units is ").concat(res.data.total_units, ".");
+        _this.message = "Success!\n                                You have applied ".concat(_this.quantity, " unit(s) for $").concat(res.data.valuation, " valuation.\n                                Current remaining units is ").concat(res.data.total_units, ".");
         _this.quantity = '';
       })["catch"](function (e) {
         _this.success = false;

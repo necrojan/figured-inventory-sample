@@ -82,7 +82,7 @@ class InventoryRepositoryImpl implements InventoryRepository
                         // subtract the application value to the item quantity.
                         $currentStocks[$firstItem->id]['quantity'] -= $applicationTypeItem;
 
-                        $valuation = $this->calculatePrice($valuation, $firstItem->quantity, $firstItem->unit_price);
+                        $valuation = $this->calculatePrice($valuation, $applicationTypeItem, $firstItem->unit_price);
 
                         $applicationTypeItem = 0;
                     }
@@ -107,13 +107,13 @@ class InventoryRepositoryImpl implements InventoryRepository
     }
 
     /**
-     * @param int $valuation
-     * @param int $quantity
-     * @param int $unitPrice
-     * @return float|int
+     * @param string $valuation
+     * @param string $quantity
+     * @param string $unitPrice
+     * @return string
      */
-    protected function calculatePrice(int $valuation, int $quantity, int $unitPrice)
+    protected function calculatePrice(string $valuation, string $quantity,  string $unitPrice): string
     {
-        return $valuation + ($quantity * $unitPrice);
+        return bcadd($valuation, bcmul($quantity, $unitPrice, 2), 2);
     }
 }

@@ -39,7 +39,7 @@ export default {
             }).then(res => {
                 this.success = true;
                 this.message = `Success!
-                                You have applied ${this.quantity} units for $${res.data.valuation} valuation.
+                                You have applied ${this.quantity} unit(s) for $${res.data.valuation} valuation.
                                 Current remaining units is ${res.data.total_units}.`;
                 this.quantity = ''
             }).catch((e) => {
